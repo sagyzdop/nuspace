@@ -7,6 +7,8 @@ Domain terms for Nuspace. When naming concepts in code, issues, or specs, use th
 | **NU** | Nazarbayev University. The institution this app serves. |
 | **Nuspace** | The NU student superapp — campus services, announcements, and student essentials in one platform. |
 | **Page** | A route's top-level UI component, rendered inside the app shell. Lives in `components/routes/<route>/`. A draft of one in the workbench's `pages/` is a workbench file, not a Page. |
+| **Content page** | A user- or org-authored page stored in the backend `pages` table, edited with Puck and addressed by slug at `pages.nuspace.kz/p/<slug>`. Not the same thing as a Page. A profile page at `pages.nuspace.kz/u/<handle>` is a Content page whose identity is the person. |
+| **Visibility** | One axis, three tiers: `private` / `NU only` / `public`. Discoverability is not a separate flag — listing derives from it, so "listed where you cannot open it" is unrepresentable. |
 | **Lib module** | A bounded capability in `src/lib/<module>/` — constants, functions, types, tests. The unit of business logic. |
 | **Route mirror** | The `components/routes/<route>/` folder holding a Page and its subcomponents. UI only, no logic. |
 | **DataTable** | The reusable table box (`shared/data-table/`), configured by `useDataTable`. Server-side pagination and sorting. |
