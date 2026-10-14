@@ -113,12 +113,6 @@ export const qk = {
     stats: () => ["sgotinish", "stats"] as const,
   },
 
-  notifications: {
-    all: () => ["notifications"] as const,
-    list: (filters: Record<string, unknown>) =>
-      ["notifications", "list", filters] as const,
-  },
-
   search: (keyword: string, storageName: string) =>
     ["search", storageName, keyword] as const,
 } as const

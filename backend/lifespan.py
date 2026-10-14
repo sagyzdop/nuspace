@@ -2,8 +2,6 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
-# Register Rabbit subscribers before the broker starts.
-import backend.modules.notification.tasks  # noqa: F401
 from backend.bootstrap.db import cleanup_db, setup_db
 from backend.bootstrap.gcp import setup_gcp
 from backend.bootstrap.meilisearch import cleanup_meilisearch, setup_meilisearch

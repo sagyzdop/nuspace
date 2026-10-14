@@ -1468,23 +1468,6 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/notification": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Get */
-        get: operations["get_notification_get"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
     "/announcements/telegram": {
         parameters: {
             query?: never;
@@ -1971,28 +1954,6 @@ export interface components {
              * Format: date-time
              */
             updated_at: string;
-        };
-        /** BaseNotification */
-        BaseNotification: {
-            /** Id */
-            id: number;
-            /** Title */
-            title: string;
-            /** Message */
-            message: string;
-            notification_source: components["schemas"]["EntityType"];
-            /** Receiver Sub */
-            receiver_sub: string;
-            /** Tg Id */
-            tg_id: number;
-            type: components["schemas"]["NotificationType"];
-            /** Url */
-            url?: string | null;
-            /**
-             * Created At
-             * Format: date-time
-             */
-            created_at: string;
         };
         /** BaseTemplateItem */
         BaseTemplateItem: {
@@ -2842,21 +2803,6 @@ export interface components {
             /** Media Order */
             media_order: number;
         };
-        /**
-         * NotificationType
-         * @description Enum representing different types of notifications.
-         *
-         *     ⚠️  IMPORTANT: When adding new values to this enum:
-         *     1. Add the new value to this Python enum class
-         *     2. Create a new Alembic migration manually (alembic revision -m "add_new_notification_type")
-         *     3. In the migration's upgrade() function, add:
-         *        op.execute("ALTER TYPE notification_type ADD VALUE 'your_new_value'")
-         *     4. Run the migration: alembic upgrade head
-         *
-         *     Alembic cannot auto-detect enum value changes, so manual migration is required!
-         * @enum {string}
-         */
-        NotificationType: "info";
         /** OpportunityCalendarResponse */
         OpportunityCalendarResponse: {
             /** Created */
@@ -6692,42 +6638,6 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["AuditResponse"] | null;
-                };
-            };
-            /** @description Validation Error */
-            422: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["HTTPValidationError"];
-                };
-            };
-        };
-    };
-    get_notification_get: {
-        parameters: {
-            query?: {
-                page?: number;
-                size?: number;
-            };
-            header?: never;
-            path?: never;
-            cookie?: {
-                access_token?: string | null;
-                refresh_token?: string | null;
-                app_token?: string | null;
-            };
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful Response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BaseNotification"][];
                 };
             };
             /** @description Validation Error */

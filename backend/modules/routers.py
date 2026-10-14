@@ -16,7 +16,6 @@ from backend.modules.events import api as events_api
 from backend.modules.events import og as events_og
 from backend.modules.google_bucket import api as google_bucket_api
 from backend.modules.media import api as media_api
-from backend.modules.notification import api as notification_api
 from backend.modules.opportunities import api as opportunities_api
 from backend.modules.pages import api as pages_api
 from backend.modules.pages import og as pages_og
@@ -39,7 +38,6 @@ routers: List[APIRouter] = [
     statistics_api.router,
     templates_api.router,
     degree_audit_api.router,
-    notification_api.router,
     announcements_api.router,
     opportunities_api.router,
     elections_api.router,
