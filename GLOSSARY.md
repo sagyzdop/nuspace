@@ -6,11 +6,11 @@ Domain terms for Nuspace. When naming concepts in code, issues, or specs, use th
 |------|------------|
 | **NU** | Nazarbayev University. The institution this app serves. |
 | **Nuspace** | The NU student superapp — campus services, announcements, and student essentials in one platform. |
-| **Page** | A route's top-level UI component, rendered inside the app shell. Lives in `components/routes/<route>/`. A draft of one in the workbench's `pages/` is a workbench file, not a Page. |
-| **Content page** | A user- or org-authored page stored in the backend `pages` table, edited with Puck and addressed by slug at `pages.nuspace.kz/p/<slug>`. Not the same thing as a Page. A profile page at `pages.nuspace.kz/u/<handle>` is a Content page whose identity is the person. |
+| **Page** | A user- or org-authored page, edited with Puck and rendered from blocks. Stored in the `pages` table, addressed by slug at `pages.nuspace.kz/p/<slug>`, with a visibility tier and a list of admins. A **profile page** is a Page whose identity is the person: one per user, carried on `users` rather than the `pages` table, read at `my.nuspace.kz/u/$handle`. A lowercase `page` — in a DataTable's URL state, a result pager, or the workbench — is not a Page. |
+| **Route screen** | A route's top-level UI component, rendered inside the app shell. Lives in `components/routes/<route>/` and is exported as `Page` — inherited convention, not a Page. A draft of one in the workbench's `pages/` is a workbench file, not a route screen. |
 | **Visibility** | One axis, three tiers: `private` / `NU only` / `public`. Discoverability is not a separate flag — listing derives from it, so "listed where you cannot open it" is unrepresentable. |
 | **Lib module** | A bounded capability in `src/lib/<module>/` — constants, functions, types, tests. The unit of business logic. |
-| **Route mirror** | The `components/routes/<route>/` folder holding a Page and its subcomponents. UI only, no logic. |
+| **Route mirror** | The `components/routes/<route>/` folder holding a route screen and its subcomponents. UI only, no logic. |
 | **DataTable** | The reusable table box (`shared/data-table/`), configured by `useDataTable`. Server-side pagination and sorting. |
 | **WIF** | Workload Identity Federation. GitHub Actions authenticates to GCP via OIDC, no static keys. |
 | **IAP** | Identity-Aware Proxy. GCP's TCP tunneling for private VM access (SSH, RDP) without public exposure. |
