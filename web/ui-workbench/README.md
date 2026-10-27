@@ -40,7 +40,7 @@ project sets the path twice.
 ```ts
 export default {
   alias: { "@": "src" }, // paths relative to the app root
-  darkClass: "dark",     // the class your theme toggle adds to <html>
+  darkClass: "dark", // the class your theme toggle adds to <html>
 }
 ```
 
@@ -89,7 +89,7 @@ prints as JSON, so measure rather than look:
 
 ```js
 // check.mjs: does this window scroll sideways?
-(() => {
+;(() => {
   const doc = document.documentElement
   return JSON.stringify({
     scrollWidth: doc.scrollWidth,
